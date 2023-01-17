@@ -11,15 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build with latexmk
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: main.tex
-          latexmk_use_xelatex: true
+      #- name: Build with latexmk
+      #  uses: xu-cheng/latex-action@v2
+      #  with:
+      #    root_file: main.tex
+      #    latexmk_use_xelatex: true
 
       - name: Publish
         run: |
-          mv .latex.out/main.pdf apunte.pdf
+          mkdir latex.out/
+          touch latex.out/main.pdf
+          mv latex.out/main.pdf apunte.pdf
           git checkout --orphan build
           git reset
           git add apunte.pdf
