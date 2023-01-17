@@ -28,4 +28,4 @@ jobs:
           git reset
           git add apunte.pdf
           git commit -m "Latest build"
-          git push origin build
+          git push --force origin build
