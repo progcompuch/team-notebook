@@ -22,6 +22,8 @@ jobs:
           mkdir latex.out/
           touch latex.out/main.pdf
           mv latex.out/main.pdf apunte.pdf
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
           git checkout --orphan build
           git reset
           git add apunte.pdf
