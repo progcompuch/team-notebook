@@ -13,6 +13,8 @@ jobs:
 
       - name: Build with latexmk
         uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
