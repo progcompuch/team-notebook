@@ -1,4 +1,4 @@
-name: build PDF
+name: Build and publish PDF
 
 on:
   push:
@@ -17,10 +17,11 @@ jobs:
           root_file: main.tex
           latexmk_use_xelatex: true
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: build
-          publish_dir: ./latex.out
-          force_orphan: true
+      - name: Publish
+        run: |
+          mv .latex.out/main.pdf apunte.pdf
+          git checkout --orphan build
+          git reset
+          git add apunte.pdf
+          git commit -m "Latest build"
+          git push origin build
