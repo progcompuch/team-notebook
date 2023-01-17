@@ -1,0 +1,39 @@
+\documentclass[10pt,landscape,twocolumn]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[spanish]{babel}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\setlength\columnseprule{0.4pt}
+
+\lstdefinestyle{c++}{
+    belowcaptionskip=1\baselineskip,
+    breaklines=true,
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+    frame=none,
+    numbers=none, 
+    basicstyle=\footnotesize\ttfamily,
+    keywordstyle=\bfseries\color{green!40!black},
+    commentstyle=\itshape\color{purple!40!black},
+    identifierstyle=\color{blue},
+    backgroundcolor=\color{gray!10!white},
+}
+
+\newcommand\includecpp[1]{
+	\lstinputlisting[language=c++, style=c++]{content/#1}
+}
+
+\newcommand\includepython[1]{
+	\lstinputlisting[language=python]{content/#1}
+}
+
+\newcommand\includetext[1]{
+	\input{content/#1}
+}
+
+
+\pagestyle{fancy}
+\fancyhead[L]{Universidad de Chile}

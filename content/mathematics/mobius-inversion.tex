@@ -1,0 +1,13 @@
+Sea $(P, \leq)$ un poset, la función de Möbius $\mu$ de $P$ se define recursivamente para elementos de $P$ como:
+\begin{align*}
+	\mu(s,s) &= 1\\
+	\mu(s,u) &= -\sum_{s \leq t < u} \mu(s,t).
+\end{align*}
+Si cada ideal principal de $P$ es finito, $f \colon P \to R$ es una función, y existe una función $g$ que cumple
+\[
+	g(y) = \sum_{x \leq y} f(x),
+\]
+luego, se tiene
+\[
+	f(y) = \sum_{x \leq y} g(x) \mu(x,y).
+\]

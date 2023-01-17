@@ -1,0 +1,19 @@
+El lema de Burnside sirve para problemas de conteo donde hay que contar solo una vez cada simetría.
+
+Sea $G$ un grupo finito actuando sobre un conjunto finito $X$. Para $g \in G$, denotamos como $X^g$ 
+los elementos de $X$ que están fijos por $g$. El lema da una fórmula para
+el número de órbitas $\left|X / G\right|$:
+\[
+	\left| X / G \right| = \frac{1}{|G|} \sum_{g\in G} \left| X^g \right|
+\]
+
+\paragraph{Ejemplo:} Contemos collares de $n$ perlas, donde cada perla tiene $m$ posibles colores. Dos collares son simétricos si
+son idénticos bajo alguna rotación. Así, cada órbita representa un collar, y el grupo $G$ se compone de las $n$ rotaciones posibles: $0, 1, \dots, n-1$
+pasos en algún sentido.
+
+Entonces, contamos cuántos collares permanecen invariantes luego de aplicar una rotación de $k$ pasos. Con cero pasos, todos los $m^n$ collares
+permanecen fijos, y con $1$ paso, los $m$ collares donde todas las perlas tienen el mismo color permanecen fijos. En general, un total de $m^{\gcd(k,n)}$ collares
+están fijos con $k$ pasos, porque bloques de tamaño $gcd(k,n)$ se reemplazan unos a los otros. Finalmente, por el Lema de Burnside, la cantidad de collares distintos es:
+\[
+	\frac{1}{n} \sum_{k=0}^{n-1} m^{\gcd(k,n)}.
+\]
