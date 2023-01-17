@@ -11,16 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      #- name: Build with latexmk
-      #  uses: xu-cheng/latex-action@v2
-      #  with:
-      #    root_file: main.tex
-      #    latexmk_use_xelatex: true
+      - name: Build with latexmk
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          latexmk_use_xelatex: true
 
       - name: Publish
         run: |
-          mkdir latex.out/
-          touch latex.out/main.pdf
           mv latex.out/main.pdf apunte.pdf
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
