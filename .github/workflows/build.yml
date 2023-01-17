@@ -1,0 +1,23 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch to deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build with latexmk
+        uses: xu-cheng/latex-action@v2
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: build
+          publish_dir: ./latex.out
+          force_orphan: true
